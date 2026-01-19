@@ -1,0 +1,6 @@
+fo1=open("sample.txt","r")
+fo2=open("source.txt","w")
+data=fo1.read()
+fo2.write(data)
+fo1.close()
+fo2.close()
