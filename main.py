@@ -1,47 +1,32 @@
-import psycopg2
-connection = psycopg2.connect(
-    database="postgres",
-    user="postgres",
-    password="shraddha123",
-    host="localhost",
-    port="5432"
-)
-cursor = connection.cursor()
-print("Database connected successfully")
+#print the number num to the standard output
+#sample input:"-1234abf&567"
+#sample output:"-1234567"
+####################################################
+# `1) first way`
+text=input("Enter the string:")
+num=""
+for char in text:
+    if char.isdigit() or (char=='-' and len(num)==0):
+        num=num+char
+print(num)
+# ###################################################
+# #`2) second way`
+text = input("Enter the string: ")
+num = ""
 
-# insert_query = """
-# INSERT INTO employees (name,department,salary)
-# VALUES (%s,%s,%s);
+for ch in text:
+    if ch.isdigit():
+        num += ch
 
-# """
-# cursor.execute(insert_query,("Rahul","finance",90000))
-# connection.commit()
-# print("Record inserted successfully")
+print(num)
+#####################################################
+#3) third way
+text = input("Enter the string: ")
+num = ""
 
-# select_query = "SELECT * FROM employees;"
-# cursor.execute(select_query)
-# records = cursor.fetchall()
-# for row in records:
-#     print(row)
-    
+for ch in text:
+    if '0' <= ch <= '9':
+        num += ch
 
-# update_query = """
-# UPDATE employees 
-# SET salary = %s
-# WHERE name = %s
-# """
-# cursor.execute(update_query, (8000, "Rahul"))
-# connection.commit()
-# print("Record updated successfully")
-
-delete_query = """
-DELETE FROM employees 
-WHERE id = %s
-"""
-cursor.execute(delete_query, (4,))
-connection.commit()
-print("Record deleted successfully")
-
-cursor.close()
-connection.close()
-print("Database connection closed")
+print(num)
+#######################################################
